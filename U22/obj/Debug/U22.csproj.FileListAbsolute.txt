@@ -1,0 +1,7 @@
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\bin\Debug\U22.exe.config
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\bin\Debug\U22.exe
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\bin\Debug\U22.pdb
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\obj\Debug\U22.csprojAssemblyReference.cache
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\obj\Debug\U22.csproj.CoreCompileInputs.cache
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\obj\Debug\U22.exe
+C:\Users\Arnas\Desktop\Savarankiskas\padek viespatie\U22\U22\obj\Debug\U22.pdb
