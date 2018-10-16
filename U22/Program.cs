@@ -45,7 +45,7 @@ namespace U22
             //Prints the fridge data to a .txt file
             p.PrintData(branches, dataFile);
             //Creates a copy of the fridge list so it does not have it's parameters changed
-            fridgesCopy = fridges;
+            fridgesCopy = fridges; //cia nebus kopija, tu issaugai reference i ta pati objekta, jeigu tu kazka pakeisi per fridges, tau pasikeis ir per fridgesCopy.
             //Writes to the console what will be written
             Console.WriteLine("Different fridge capacities:");
             //Writes to the console all the different capacities of the fridges
@@ -89,7 +89,7 @@ namespace U22
                 line = reader.ReadLine();
                 if (line != null)
                     shopsName = line;
-                Branch branch = GetBranchByShopsName(branches, shopsName);
+                Branch branch = GetBranchByShopsName(branches, shopsName); //sukuri random brancha
                 if (branch == null)
                     return;
                 string address = reader.ReadLine();
@@ -106,7 +106,7 @@ namespace U22
                     string attribute = values[6];
                     double cost = double.Parse(values[7]);
                     Fridges fridge = new Fridges(facturer, model, capacity, energyClass, assemblyType, color, attribute, cost);
-                    branch.fridges.AddFridge(fridge);
+                    branch.fridges.AddFridge(fridge); //tada cia ji pildai ir jo niekur nenusiunti, todel tau neuzsipildo
                 }
             }
 
@@ -190,8 +190,8 @@ namespace U22
         double MinCost(FridgeContainer fridges)
         {
             double min;
-            min = fridges.GetFridge(0).Cost;
             FridgeContainer tinkamiFridgai = FittingFridges(fridges);
+            min = tinkamiFridgai.GetFridge(0).Cost;
             for (int i=1; i< tinkamiFridgai.Count; i++)
             {
                 if (min > fridges.GetFridge(i).Cost)
