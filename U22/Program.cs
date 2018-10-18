@@ -64,17 +64,6 @@ namespace U22
             p.PrintAll(fridgesCopy, boshFileName, "Bosh");
             Console.ReadKey();
         }
-        private Branch GetBranchByShopsName(Branch[] branches, string shopsName)
-        {
-            for (int i = 0; i < NumberOfBranches; i++)
-            {
-                if (branches[i].ShopsName == shopsName)
-                {
-                    return branches[i];
-                }
-            }
-            return null;
-        }
 
         /// <summary>
         /// Reads the file and sets values to the fridge class
@@ -89,9 +78,7 @@ namespace U22
                 line = reader.ReadLine();
                 if (line != null)
                     shopsName = line;
-                Branch branch = GetBranchByShopsName(branches, shopsName); //sukuri random brancha
-                if (branch == null)
-                    return;
+                Branch tempBranches = TempBranch(branches, shopsName);
                 string address = reader.ReadLine();
                 string phoneNumber = reader.ReadLine();
                 while (null != (line = reader.ReadLine()))
@@ -106,11 +93,23 @@ namespace U22
                     string attribute = values[6];
                     double cost = double.Parse(values[7]);
                     Fridges fridge = new Fridges(facturer, model, capacity, energyClass, assemblyType, color, attribute, cost);
-                    branch.fridges.AddFridge(fridge); //tada cia ji pildai ir jo niekur nenusiunti, todel tau neuzsipildo
+                    tempBranches.fridges.AddFridge(fridge);
                 }
             }
-
         }
+        
+        private static Branch TempBranch(Branch[] branches, string fridge)
+        {
+            for (int i = 0; i < MaxNumberOfFridges; i++)
+            {
+                if (branches[i].ShopsName == fridge)
+                {
+                    return branches[i];
+                }
+            }
+            return null;
+        }
+        
         void ReadAllData (string[] files, Branch[] branches)
         {
              foreach (string file in files)
